@@ -1,0 +1,102 @@
+<!-- form-interests.html -->
+    <div class="row">
+       <div class="col-md-12">
+        <h2 class="text-center">Security and Medical Information</h2> 
+        </div>
+        <div class="col-md-6">
+		<div class="form-group">
+            <label class="col-sm-8 control-label">
+            	Check if you have an Emergency Evacuation Plan
+            </label>
+            <div class="col-sm-4">
+                <label class="radio-inline"><input type="radio" name="evacuation_plan" ng-model="formData.evacuation_plan" ng-value="true" /> Yes</label>
+                <label class="radio-inline"><input type="radio" name="evacuation_plan" ng-model="formData.evacuation_plan" ng-value="false" /> No</label>
+            </div>
+		</div>
+		<div class="form-group">
+            <label class="col-sm-8 control-label">
+            	Check if there be an ambulance service in attenance?
+            </label>
+            <div class="col-sm-4">
+                <label class="radio-inline"><input type="radio" name="ambulences" ng-model="formData.ambulences" ng-value="true" /> Yes</label>
+                <label class="radio-inline"><input type="radio" name="ambulences" ng-model="formData.ambulences" ng-value="false" /> No</label>
+            </div>
+		</div>
+		<div class="form-group">
+         	<label class="col-sm-8 control-label">
+            	Check if any Medical facilities or Medical Professionals employed or contracted. If Yes, Review Professional Liability Exclusion
+            </label>
+            <div class="col-sm-4">
+                <label class="radio-inline"><input type="radio" name="medical_employed" ng-model="formData.medical_employed" ng-value="true" /> Yes</label>
+                <label class="radio-inline"><input type="radio" name="medical_employed" ng-model="formData.medical_employed" ng-value="false" /> No</label>
+            </div>		
+		</div>
+		<div class="form-group">
+         	<label class="col-sm-8 control-label">
+            	Check if any promotional information printed or electronic makes any representation about the safety or security of the premises?
+            </label>
+            <div class="col-sm-4">
+                <label class="radio-inline"><input type="radio" name="security_safety_material" ng-model="formData.security_safety_material" ng-value="true" /> Yes</label>
+                <label class="radio-inline"><input type="radio" name="security_safety_material" ng-model="formData.security_safety_material" ng-value="false" /> No</label>
+            </div>	
+		</div>
+		<div class="form-group">
+			<label class="col-sm-12 control-label" for="security_measures">Please Describe Planned Security Measures</label>
+			<div class="col-sm-12">
+				<input type="text" class="form-control" name="security_measures" ng-model="formData.security_measures" maxlength="500" />
+			</div>
+		</div>
+		</div>
+		<div class="col-md-6">
+		<div class="form-group" id="quoteEventSecurityPersonnel">
+			<label class="col-sm-8 control-label" for="security_personnel">How many security personnel will be available at one time?</label>
+			<div class="col-sm-4">
+				<input type="text" class="form-control" name="security_personnel" ng-model="formData.security_personnel" maxlength="150" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-8 control-label">What type of security provider is being used?</label>
+			<div class="col-sm-4">
+				<select class="form-control required" name="security_provider" ng-model="formData.security_provider" ng-options="secure.id as secure.value for secure in Security" required>
+					<option value="">Please Choose One</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group" ng-show="formData.security_provider === 16">
+         	<label class="col-sm-8 control-label">
+            	Check If security is provided by an independent contractor and they have their own liability insurance with you, as the Insured, Named as an Additional
+Insured and have a policy limit of not less than $1,000,000 per occurrence.
+            </label>
+            <div class="col-sm-4">
+                <label class="radio-inline"><input type="radio" name="security_insurance" ng-model="formData.security_insurance" ng-value="true" /> Yes</label>
+                <label class="radio-inline"><input type="radio" name="security_insurance" ng-model="formData.security_insurance" ng-value="false" /> No</label>
+            </div>	
+		</div>
+		<div class="form-group" ng-show="formData.security_insurance">
+			<label class="col-sm-3 control-label" for="quoteEventSecurityProviderInsuredDesc">Please explain reason for above if not checked.</label>
+			<div class="col-sm-7">
+				<input type="text" class="form-control" name="security_insurance_desc" ng-model="formData.security_insurance_desc" maxlength="500" />
+			</div>
+		</div>
+		<div class="form-group">
+         	<label class="col-sm-8 control-label">
+            	If not using police officers will the security personnel be armed? (requires review if so)
+            </label>
+            <div class="col-sm-4">
+                <label class="radio-inline"><input type="radio" name="security_safety_material" ng-model="formData.security_armed" ng-value="true" /> Yes</label>
+                <label class="radio-inline"><input type="radio" name="security_safety_material" ng-model="formData.security_armed" ng-value="false" /> No</label>
+            </div>	
+		</div>
+		<div class="form-group">
+         	<label class="col-sm-8 control-label">
+            	Have any crimes occurred in the last 3 years at this location?
+            </label>
+            <div class="col-sm-4">
+                <label class="radio-inline"><input type="radio" name="crime" ng-model="formData.crime" ng-value="true" /> Yes</label>
+                <label class="radio-inline"><input type="radio" name="crime" ng-model="formData.crime" ng-value="false" /> No</label>
+            </div>
+		</div>
+    </div>    
+   </div>
+    <div class="form-group"><button type="submit" ui-sref="form.waiver" ng-disabled="!eform.$valid" class="btn btn-primary pull-right">Next <span class="glyphicon glyphicon-circle-arrow-right"></span></button></div>
+    </div>

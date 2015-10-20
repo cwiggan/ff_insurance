@@ -1,0 +1,93 @@
+<!-- form-interests.html -->
+    <div class="row">
+    <div class="col-md-12">
+        <h2 class="text-center">Activity Information</h2>
+        <div class="form-group">     
+            <label class="col-sm-8 control-label">
+                Do you have spectator rides?
+            </label>
+            <div class="col-sm-4">
+                    <label class="radio-inline"><input type="radio" name="spectator_ridess" ng-model="formData.spectator_ridess" ng-value="true" /> Yes</label>
+                    <label class="radio-inline"><input type="radio" name="spectator_ridess" ng-model="formData.spectator_ridess" ng-value="false" /> No</label>                
+            </div>
+        </div>
+        <div class="form-group" ng-show="formData.spectator_ridess">
+            <label class="col-sm-3 control-label" for="spectator_rides_desc">Please Describe Rides</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control" name="spectator_rides_desc" ng-model="formData.spectator_rides_desc" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-8 control-label">
+                Do you have inflatables? 
+            </label>
+            <div class="col-sm-4">
+                <label class="radio-inline"><input type="radio" name="infladible" ng-model="formData.infladible" ng-value="true" /> Yes</label>
+                <label class="radio-inline"><input type="radio" name="infladible" ng-model="formData.infladible" ng-value="false" /> No</label>
+            </div>
+        </div>
+        <div class="form-group" ng-show="formData.infladible">
+            <label class="col-sm-3 control-label" for="infladibles_desc">Please Describe Inflatables</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control" name="infladibles_desc" ng-model="formData.infladibles_desc" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-8 control-label">
+                Will there be concessions?
+            </label>
+            <div class="col-sm-4">
+                <label class="radio-inline"><input type="radio" name="concessions" ng-model="formData.concessions" ng-value="true" /> Yes</label>
+                <label class="radio-inline"><input type="radio" name="concessions" ng-model="formData.concessions" ng-value="false" /> No</label>
+            </div>
+        </div>
+        <div class="form-group" ng-show="formData.concessions">
+            <label class="col-sm-8 control-label">
+                Do your concessions have valid certificates?
+            </label>
+            <div class="col-sm-4">
+                <label class="radio-inline"><input type="radio" name="concessions_insurance" ng-model="formData.concessions_insurance" ng-value="true" /> Yes</label>
+                <label class="radio-inline"><input type="radio" name="concessions_insurance" ng-model="formData.concessions_insurance" ng-value="false" /> No</label>
+            </div>
+        </div>
+        <div class="form-group">
+             <label class="col-sm-8 control-label">
+                Will there be vendors at your event?
+            </label>
+            <div class="col-sm-4">
+                <label class="radio-inline"><input type="radio" name="vendors" ng-model="formData.vendors" ng-value="true" /> Yes</label>
+                <label class="radio-inline"><input type="radio" name="vendors" ng-model="formData.vendors" ng-value="false" /> No</label>
+            </div>       
+        </div>
+        <div class="form-group" ng-show="formData.vendors">
+            <label class="col-sm-8 control-label">
+                Are Vendors, Attraction Owners & Performers required to carry their own insurance?
+            </label>
+            <div class="col-sm-4">
+                <label class="radio-inline"><input type="radio" name="vendors_insurance" ng-model="formData.vendors_insurance" ng-value="true" /> Yes</label>
+                <label class="radio-inline"><input type="radio" name="vendors_insurance" ng-model="formData.vendors_insurance" ng-value="false" /> No</label>
+            </div> 
+        </div>
+        <div class="form-group" ng-show="formData.vendors_insurance">
+            <label class="col-sm-4 control-label" for="quoteEventVendorInsuranceLimit">What Limit is required on the above insurance?</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control number" name="quoteEventVendorInsuranceLimit" ng-model="formData.vendors_insurance_limit" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-8 control-label">
+                Will waivers be issued?
+            </label>
+            <div class="col-sm-4">
+                <label class="radio-inline"><input type="radio" name="waiviers" ng-model="formData.waiviers" ng-value="true" /> Yes</label>
+                <label class="radio-inline"><input type="radio" name="waiviers" ng-model="formData.waiviers" ng-value="false" /> No</label>
+            </div>
+        </div>
+        <div class="form-group" ng-show="formData.waiviers">
+            <label class="col-sm-4 control-label" for="waiviers">Please List Where Waivers will be used</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" name="waiviers" ng-model="formData.waiviers_activity" />
+            </div>
+        </div>
+        </div>
+    </div>    

@@ -1,0 +1,192 @@
+<!-- form-interests.html -->
+<h2 class="text-center">Optional Liquor Liability Coverage Data {{ formData.location_state }}</h2>
+
+<div class="row">
+<div class="col-md-12" ng-hide="formData.ioptions.ids['29']"> you want liquior</div>
+<div>
+    <div class="col-md-6">
+    {{formData.ioptions.ids["29"]}}
+            <div class="form-group">
+                <label class="col-sm-12 control-label" for="quoteLiquorServedBy">Who will be serving the alcohol?<br />Hold Down Control or Shift to select multiple</label>
+                <div class="col-sm-12">
+                    <select class="form-control" name="quoteLiquorServedBy" ng-model="formData.serve_by" multiple>
+                        <option value="" disabled>Select All That Apply</option>
+                        <option value="Insured">Insured</option>
+                        <option value="Employees Or Volunteers">Employees Or Volunteers</option>
+                        <option value="Charitable Institutions">Charitable Institutions</option>
+                    </select>
+                    <input type="text" class="form-control" placeholder="Please tell us about any others that will be serving alcohol" ng-model="formData.grand_stands" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-8 control-label">
+                    Liquor providers have their own liquor liability coverage
+                </label>
+                <div class="col-sm-4">
+                    <label class="radio-inline"><input type="radio" name="liquor_coverage" ng-model="formData.liquor_coverage" ng-value="true" /> Yes</label>
+                    <label class="radio-inline"><input type="radio" name="liquor_coverage" ng-model="formData.liquor_coverage" ng-value="false" /> No</label>
+                </div> 
+            </div>
+            <div class="form-group" ng-show="formData.liquor_coverage">
+                <label class="col-sm-8 control-label">
+                   Do you have a liquor license?
+                </label>
+                <div class="col-sm-4">
+                    <label class="radio-inline"><input type="radio" name="liquor_coverage" ng-model="formData.license" ng-value="true" /> Yes</label>
+                    <label class="radio-inline"><input type="radio" name="liquor_coverage" ng-model="formData.license" ng-value="false" /> No</label>
+                </div>             
+            </div>
+            <div class="form-group" ng-show="formData.license">
+                <label class="col-sm-8 control-label">
+                   License Details: License Under and Type
+                </label>
+                <div class="col-sm-12">
+                    <input type="text" class="form-control" name="quoteLiquorLicenseNameType" placeholder="Example: John Smith / Alcohol Retail Sale" ng-model="formData.name_on_license" maxlength="250" />
+                </div>
+            </div>
+            <div class="form-group">
+                 <label class="col-sm-8 control-label">
+                   Is First Flight to provide your liquor liability coverage? 
+                </label>
+                <div class="col-sm-4">
+                    <label class="radio-inline"><input type="radio" name="provide_coverage" ng-model="formData.provide_coverage" ng-value="true" /> Yes</label>
+                    <label class="radio-inline"><input type="radio" name="provide_coverage" ng-model="formData.provide_coverage" ng-value="false" /> No</label>
+                </div>           
+            </div>
+            <div class="form-group"  ng-show="formData.grand_stands">
+                <label class="col-sm-12 control-label" for="quoteLiquorBeverageTypes">What types of alcoholic beverages will be served?</label>
+                <div class="col-sm-12">
+                    <input type="text" class="form-control required" name="quoteLiquorBeverageTypes" ng-model="formData.type_sold" placeholder="Example: Beer and Wine" maxlength="250" />
+                </div>
+            </div>
+            <div class="form-group" id="quoteLiquorAnticipatedSales">
+                <label class="col-sm-12 control-label" for="quoteLiquorAnticipatedSales">Anticipated Gross Liquor Sales</label>
+                <div class="col-sm-12">
+                    <input type="text" class="form-control required number" name="expected_gross_sale" ng-model="formData.expected_gross_sale" placeholder="10000"  maxlength="21" />
+                </div>
+            </div>
+            <div class="form-group" id="quoteLiquorPriorSales">
+                <label class="col-sm-12 control-label" for="quoteLiquorPriorSales">Prior Year's Gross Liquor Sales</label>
+                <div class="col-sm-12">
+                    <input type="text" class="form-control required number" name="last_year_gross_sale" ng-model="formData.last_year_gross_sale" placeholder="10000" maxlength="21" />
+                </div>
+            </div>
+            <div class="form-group">
+                 <label class="col-sm-8 control-label">
+                   Check if you have ever been fined by any alcohol regulatory agency
+                </label>
+                <div class="col-sm-4">
+                    <label class="radio-inline"><input type="radio" name="fined" ng-model="formData.fined" ng-value="true" /> Yes</label>
+                    <label class="radio-inline"><input type="radio" name="fined" ng-model="formData.fined" ng-value="false" /> No</label>
+                </div>
+            </div>
+            <div class="form-group">
+                 <label class="col-sm-8 control-label">
+                  Check if your Liquor License has ever been revoked or suspended
+                </label>
+                <div class="col-sm-4">
+                    <label class="radio-inline"><input type="radio" name="revoke_suspened" ng-model="formData.revoke_suspened" ng-value="true" /> Yes</label>
+                    <label class="radio-inline"><input type="radio" name="revoke_suspened" ng-model="formData.revoke_suspened" ng-value="false" /> No</label>
+                </div>
+            </div>
+            <div class="form-group">
+                 <label class="col-sm-8 control-label">
+                  Check if you ever Incurred a Liquor Liability Claim {{formData.ioptions.ids["29"]}}
+                </label>
+                <div class="col-sm-4">
+                    <label class="radio-inline"><input type="radio" name="claim" ng-model="formData.claim" ng-value="true" /> Yes</label>
+                    <label class="radio-inline"><input type="radio" name="claim" ng-model="formData.claim" ng-value="false" /> No</label>
+                </div>
+            </div>
+            <div class="form-group" ng-show="formData.claim">
+                <label class="col-sm-12 control-label" for="quoteLiquorPriorExplanation">Please explain the circumstances of your previous fine, revoked license or claim</label>
+                <div class="col-sm-12">
+                    <input type="text" class="form-control" name="claim_desc" ng-model="formData.claim_desc"  maxlength="500" />
+                </div>
+            </div>
+            </div>
+            <div class="col-md-6">
+            <div class="form-group">
+                 <label class="col-sm-8 control-label">
+                  Check if your servers are trained in alcohol awareness
+                </label>
+                <div class="col-sm-4">
+                    <label class="radio-inline"><input type="radio" name="servers_trained" ng-model="formData.servers_trained" ng-value="true" /> Yes</label>
+                    <label class="radio-inline"><input type="radio" name="servers_trained" ng-model="formData.servers_trained" ng-value="false" /> No</label>
+                </div>
+            </div>
+            <div class="form-group"  ng-show="formData.servers_trained">
+                <label class="col-sm-12 control-label" for="quoteLiquorServersUnTrainedExplain">Please explain if servers are untrained in alcohol awareness</label>
+                <div class="col-sm-12">
+                    <input type="text" class="form-control" name="quoteLiquorServersUnTrainedExplain" ng-model="formData.servers_trained_desc" maxlength="500" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-8 control-label">
+                  Check if procedures and chain of authority are established for refusing to serve
+                </label>
+                <div class="col-sm-4">
+                    <label class="radio-inline"><input type="radio" name="refusing_to_serve" ng-model="formData.refusing_to_serve" ng-value="true" /> Yes</label>
+                    <label class="radio-inline"><input type="radio" name="refusing_to_serve" ng-model="formData.refusing_to_serve" ng-value="false" /> No</label>
+                </div>
+            </div>
+            <div class="form-group"  ng-show="formData.refusing_to_serve">
+                <label class="col-sm-12 control-label" for="quoteLiquorRefusalExplanation">Please explain if procedures and chain of authority for refusing to server are not established</label>
+                <div class="col-sm-12">
+                    <input type="text" class="form-control" name="quoteLiquorRefusalExplanation" ng-model="formData.refusing_to_serve_desc" maxlength="250" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-8 control-label">
+                  Check if procedures are established for checking ID
+                </label>
+                <div class="col-sm-4">
+                    <label class="radio-inline"><input type="radio" name="id_check" ng-model="formData.id_check" ng-value="true" /> Yes</label>
+                    <label class="radio-inline"><input type="radio" name="id_check" ng-model="formData.id_check" ng-value="false" /> No</label>
+                </div>            
+            </div>
+            <div class="form-group"  ng-show="formData.id_check">
+                <label class="col-sm-12 control-label" for="quoteLiquorProcedureForID">Please explain your procedures for checking ID<br /><span class="small">You must have procedures for checking ID to be covered</span></label>
+                <div class="col-sm-12">
+                    <input type="text" class="form-control required" name="quoteLiquorProcedureForID" ng-model="formData.id_check_desc" maxlength="250" id="quoteLiquorProcedureForIDID" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-12 control-label" for="quoteLiquorPurchaseLimit">Describe limits placed on number of alcoholic beverages allowed for purchase per trasaction.</label>
+                <div class="col-sm-12">
+                    <input type="text" class="form-control required" name="quoteLiquorPurchaseLimit" ng-model="formData.drink_limit" maxlength="500" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-12 control-label" for="quoteLiquorOpenCloseHours">List Opening/Closing Hours of alcohol sales - If alcohol sales are not shut down at least 30 min prior to closing, Explain</label>
+                <div class="col-sm-12">
+                    <input type="text" class="form-control required" name="quoteLiquorOpenCloseHours" ng-model="formData.opening_closing_hours"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-8 control-label">
+                  Check if patrons are allowed to carry in their own alcoholic beverages onto the premises <span class="small">Coverage prohibited if allowed</span>
+                </label>
+                <div class="col-sm-4">
+                    <label class="radio-inline"><input type="radio" name="outside_alcohol" ng-model="formData.outside_alcohol" ng-value="true" /> Yes</label>
+                    <label class="radio-inline"><input type="radio" name="outside_alcohol" ng-model="formData.outside_alcohol" ng-value="false" /> No</label>
+                </div>    
+            </div>
+            <div class="form-group" ng-show="formData.outside_alcohol">
+                <label class="col-sm-12 control-label" for="quoteLiquorCarryInExplain">Please explain policy on patrons carrying their own alcoholic beverages onto the premesis</label>
+                <div class="col-sm-12">
+                    <input type="text" class="form-control" ng-model="formData.outside_alcohol_desc" name="quoteLiquorCarryInExplain" value="#quoteLiquorCarryInExplain#" id="quoteLiquorCarryInExplainID" maxlength="250" />
+                </div>
+            </div>
+       
+
+            <div class="form-group row">
+                <div class="col-xs-6 col-xs-offset-3">
+                    <a ui-sref="form.payment" class="btn btn-info">
+                    Next Section <span class="glyphicon glyphicon-circle-arrow-right"></span>
+                    </a>
+                </div>
+            </div>
+    </div>
+    </div>
+</div>

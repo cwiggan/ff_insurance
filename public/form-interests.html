@@ -1,0 +1,71 @@
+<!-- form-interests.html -->
+<h2>Choose Additional Coverage Options</h2>
+            <p style="font-style:bold;font-size:1.2em;">Optional Coverage is Fully Earned at Inception {{formData.event_type}}</p>
+            <h3>Coverage</h3>
+<div class="row">
+        <div class="col-sm-6">
+
+            <ul class="">
+                <li>General Aggregate Limit - $2,000,000</li>
+                <li>Occurrence Limit - $1,000,000</li>
+                <li>Personal &amp; Advertising Injury - $1,000,000</li>
+                <li>Products-Completed Operations - $1,000,000</li>
+            </ul>
+        </div>
+        <div class="col-sm-6">
+            <ul class="">
+                <li>Fire Legal Liability - $250,000</li>
+                <li>Medical Expense Limit - $1,000 (any one person)</li>
+            </ul>
+            <ul>
+                <li>Deductible
+                    <ul>
+                        <li>Liability - None</li>
+                        <li>Property Damage - $500 per claim</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+            <div class="col-md-12">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="quoteSubrogation" value="" data="" /> Optional Subrogation<br /><a href="http://en.wikipedia.org/wiki/Subrogation" target="_blank">Need an Explanation?</a>
+                    </label>
+                </div>
+                </div>
+            </div>
+            <div class="form-group"  ng-repeat="x in Options">
+                <div class="col-md-12">
+                    <div class="checkbox">
+                        <label for="{{x.id}}">
+                            <input type="checkbox" name="group" id="{{x.id}}" ng-model="formData.ioptions.ids[x.id]" /> Optional {{ x.name }} - Add ${{ x.price }}
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6" ng-show="formData.event_type.id === 156">
+            <div class="form-group"  ng-repeat="w in Wedding">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="quoteFireLimit500000" ng-model="formData.options[w.id]" data="" /> Optional {{ w.name }} - Add ${{ w.price }}
+                    </label>
+                </div>
+            </div>
+        </div>
+    
+   
+
+        <div class="form-group row">
+            <div class="col-xs-6 col-xs-offset-3">
+            option: {{formData.ioptions.ids["29"]}}
+                <a ui-sref="form.payment" class="btn btn-block btn-info">
+                Next Section <span class="glyphicon glyphicon-circle-arrow-right"></span>
+                </a>
+            </div>
+        </div>
+    </div>

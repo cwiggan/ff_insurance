@@ -1,0 +1,124 @@
+<!-- form-interests.html -->
+    <div class="row">
+        <div class="col-sm-6">
+            <h2 class="text-center">Site Information</h2>
+            <div class="form-group">
+                <label class="col-md-8 control-label">
+                    Do you have grandstands at your event site?
+                </label>
+                <div class="col-sm-4">
+                    <label class="radio-inline"><input type="radio" name="grand_stands" ng-model="formData.grand_stands" ng-value="true" /> Yes</label>
+                    <label class="radio-inline"><input type="radio" name="grand_stands" ng-model="formData.grand_stands" ng-value="false" /> No</label>
+                </div>       
+            </div>
+            <div ng-show="formData.grand_stands">
+                <div class="form-group" id="quoteEventGrandstandsCount">
+                    <label class="col-md-4 control-label" for="grand_stand_number">If so, how many grandstands?</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control number" name="grand_stand_number" ng-model="formData.grand_stand_number" maxlength="18" ng-required="formData.grand_stands"/>
+                    </div>
+                </div>
+                 <div class="form-group" id="quoteEventGrandstandsType">
+                    <label class="col-md-4 control-label" for="grand_type">Grandstands Type</label>
+                    <div class="col-md-8">
+                        <select class="form-control" name="grand_type" ng-model="formData.grand_type" ng-required="formData.grand_stands">
+                            <option value="Permanant">Permanant</option>
+                            <option value="Temporary">Temporary</option>
+                        </select>
+                    </div>
+                </div>
+               <div class="form-group">
+                    <label class="col-md-4 control-label" for="grand_firm">If temporary what firm provides grandstands?</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" ng-model="formData.grand_firm" name="grand_firm" maxlength="50" ng-required="formData.grand_stands"/>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-8 control-label">
+                    Do you have bleachers at your event site?
+                </label>
+                <div class="col-sm-4">
+                    <label class="radio-inline"><input type="radio" name="bleachers" ng-model="formData.bleachers" ng-value="true" /> Yes</label>
+                    <label class="radio-inline"><input type="radio" name="bleachers" ng-model="formData.bleachers" ng-value="false" /> No</label>
+                </div>  
+            </div>
+            <div class="form-group">
+                <label class="col-md-8 control-label">
+                    Do you have Platform at your event site?
+                </label>
+                <div class="col-sm-4">
+                    <label class="radio-inline"><input type="radio" name="platforms" ng-model="formData.platforms" ng-value="true" /> Yes</label>
+                    <label class="radio-inline"><input type="radio" name="platforms" ng-model="formData.platforms" ng-value="false" /> No</label>
+                </div>  
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    <label class="control-label" for="type_of_contrunction">What Type Of Construction Are The Above?</label>
+                    <select class="form-control" name="quoteEventConstructionType" ng-model="formData.type_of_contrunction" ng-options="contype.id as contype.value for contype in ConstructionType" required>
+                        <option value="">Choose One</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    <label class="control-label" for="type_of_railings">What kind of railings are at the site?</label>
+                    <select class="form-control" name="quoteEventRailings" ng-model="formData.type_of_railings" ng-options="rails.id as rails.value for rails in Railings" required>
+                        <option value="">Choose One</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <h2>Loss History Information</h2>
+            <div class="form-group">
+                <label class="col-md-8 control-label">
+                    Check if you (the applicant) ever filed bankruptcy or had a tax or credit lien filed against you in the past 5 years?
+                </label>
+                <div class="col-sm-4">
+                    <label class="radio-inline"><input type="radio" name="bankruptcy_lien" ng-model="formData.bankruptcy_lien" ng-value="true" /> Yes</label>
+                    <label class="radio-inline"><input type="radio" name="bankruptcy_lien" ng-model="formData.bankruptcy_lien" ng-value="false" /> No</label>
+                </div>  
+            </div>
+            <div class="form-group">
+                <label class="col-md-8 control-label">
+                  Check if you have had insurance cancelled, non-renewed or declined for any reason during the past 3 years?
+                </label>
+                <div class="col-sm-4">
+                    <label class="radio-inline"><input type="radio" name="insurance_cancel_decline" ng-model="formData.insurance_cancel_decline" ng-value="true" /> Yes</label>
+                    <label class="radio-inline"><input type="radio" name="insurance_cancel_decline" ng-model="formData.insurance_cancel_decline" ng-value="false" /> No</label>
+                </div> 
+            </div>
+            <div class="form-group" ng-show="formData.insurance_cancel_decline">
+                <label class="col-md-4 control-label" for="insurance_cancel_decline_desc">Please explain reason for above.</label>
+                <div class="col-md-8">
+                    <textarea class="form-control" name="insurance_cancel_decline_desc" ng-model="formData.insurance_cancel_decline_desc" ng-required="formData.insurance_cancel_decline"></textarea>
+                </div>      
+            </div>
+            <div class="form-group">
+                <label class="col-md-8 control-label">
+                  Check if you have had insurance Claims or losses within the past 3 years?s?
+                </label>
+                <div class="col-sm-4">
+                    <label class="radio-inline"><input type="radio" name="claims_lose" ng-model="formData.claims_lose" ng-value="true" /> Yes</label>
+                    <label class="radio-inline"><input type="radio" name="claims_lose" ng-model="formData.claims_lose" ng-value="false" /> No</label>
+                </div> 
+            </div>
+            <div class="form-group" ng-show="formData.claims_lose">
+                <label class="col-md-12 control-label">
+                  Please explain reason for above if not checked.
+                </label>
+                <div class="col-sm-12">
+                    <textarea class="form-control" name="claims_lose_desc" ng-model="formData.claims_lose_desc" ng-required="formData.insurance_cancel_decline"></textarea>
+                </div> 
+            </div>
+
+            <div class="form-group row">
+                <div class="col-xs-6 col-xs-offset-3">
+                    <a ui-sref="form.activity" class="btn btn-block btn-info pull-right" ng-disabled="!eform.$valid">
+                    Next Section <span class="glyphicon glyphicon-circle-arrow-right"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>    

@@ -1,0 +1,71 @@
+<!-- form-profile.html -->
+
+	<div class="col-md-6">
+		<div class="form-group">
+			<label class="col-sm-4 control-label" for="name">Event Title</label>
+			<div class="col-sm-7">
+			    <input type="text" class="form-control required" name="name" ng-model="formData.name" maxlength="250"/>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-4 control-label" for="location_name">Event Location</label>
+			<div class="col-sm-7">
+			    <input type="text" class="form-control" name="location_name" ng-model="formData.location_name" maxlength="250" required/>
+			</div>
+		</div>
+		<div class="form-group">
+		<label class="col-sm-4 control-label" for="location_type">Select a Location Type</label>
+
+		<div class="col-sm-7">
+		    <select name="location_type" class="form-control" ng-model="formData.location_type" ng-options="location.id as location.value for location in LocationType" required>
+		    	<option value="">Select a Location Type</option>
+		    </select>
+		    <input type="text" class="form-control" ng-show="formData.location_type === 10" name="location_other"  ng-model="formData.location_other" value="" maxlength="250"/>
+		</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-4 control-label">Enter State Event Will Take Place In</label>
+
+			<div class="col-sm-7">
+			    <select name="location_state" class="form-control required" ng-model="formData.location_state" ng-options="item.state_code as item.state_name for item in StateList" required>
+			    	<option value="">Select State</option>
+			    </select>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label class="col-sm-5 control-label" for="location_type">Event Type</label>
+			<div class="col-sm-7">
+			    <select class="form-control required" name="event_type" ng-model="formData.event_type" ng-options="cat.id as cat.name for cat in CatList track by cat.id" required>
+			    	<option value="">Select </option>
+			    </select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-5 control-label" for="location_guest">How Many Guests Will Be At Your Event</label>
+			<div class="col-sm-7">
+			    <input type="text" class="form-control required number" name="location_guest" ng-model="formData.location_guest" maxlength="18" required/>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-5 control-label">Start Date</label>
+			<div class="col-sm-7">
+			    <input type="text" class="form-control datepicker required" name="start_time" ng-model="formData.start_time" maxlength="10" required/>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-5 control-label">End Date</label>
+			<div class="col-sm-7">
+			    <input type="text" class="form-control datepicker" name="end_time" ng-model="formData.end_time" maxlength="10" required/>
+			</div>
+		</div>
+	
+    <div class="form-group"><span id="stpricing" class="pull-right" style="text-align:right;">
+        Calculated Insurance Rate:
+        <input class="prices short" id="startprice" name="subtotal" ng-model="formData.subtotal" readonly style="text-align:right;"/>
+    </span>
+    </div>
+    <div class="form-group"><button type="submit" ui-sref="form.interests" ng-disabled="!eform.$valid" class="btn btn-primary pull-right">Next <span class="glyphicon glyphicon-circle-arrow-right"></span></button></div>
+    </div>
+

@@ -1,0 +1,16 @@
+
+        <div class="content">
+            <input type="text" ng-model="formData.option" ng-init="Options.text"/> {{Options.text}}
+            <div class="form-group"  ng-repeat="opt in Options.options">
+                <div class="col-md-12">
+                    <label for="{{opt.id}}">{{ opt.value }}</label>
+                        <input type="text" id="{{opt.id}}" ng-model="formData.option.ids[opt.id]" /> 
+                    
+                </div>
+            </div>
+
+        </div>
+
+
+
+
